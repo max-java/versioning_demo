@@ -15,7 +15,7 @@ plugins {
 apply plugin: "com.palantir.git-version"
 
 group = 'by.jrr.versioning'
-//version = gitVersion()
+version = gitVersion()
 sourceCompatibility = '11'
 
 repositories {
@@ -54,7 +54,7 @@ processResources {
 	filter(ReplaceTokens, tokens:[appVersion: gitVersion()])
 }
 
-// versioning with org.ajoberstar.release-opinion
+// versioning with org.ajoberstar.release-opinion (version should be commented)
 release {
 	versionStrategy Strategies.FINAL
 	defaultVersionStrategy Strategies.SNAPSHOT
