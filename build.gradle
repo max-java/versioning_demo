@@ -1,10 +1,15 @@
 import org.apache.tools.ant.filters.ReplaceTokens
+import org.ajoberstar.gradle.git.release.opinion.Strategies
 
 plugins {
 	id 'org.springframework.boot' version '2.4.0'
 	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
 	id 'java'
 	id 'com.palantir.git-version' version '0.7.3'
+
+	//another way of versioning plugin
+	id 'org.ajoberstar.grgit' version '1.7.2'
+	id 'org.ajoberstar.release-opinion' version '1.7.2'
 }
 
 apply plugin: "com.palantir.git-version"
@@ -47,4 +52,13 @@ task showVersion {
 
 processResources {
 	filter(ReplaceTokens, tokens:[appVersion: gitVersion()])
+}
+
+// versioning with org.ajoberstar.release-opinion
+release {
+	versionStrategy Strategies.FINAL
+	defaultVersionStrategy Strategies.SNAPSHOT
+	tagStrategy {
+		generateMessage = { version -> "Version $project.version" }
+	}
 }
