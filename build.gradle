@@ -15,7 +15,7 @@ plugins {
 apply plugin: "com.palantir.git-version"
 
 group = 'by.jrr.versioning'
-version = gitVersion()
+//version = gitVersion()
 sourceCompatibility = '11'
 
 repositories {
