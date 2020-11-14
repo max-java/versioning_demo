@@ -8,23 +8,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                echo 'Building project'
+                ./gradlew build
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
-        stage('Playing') {
-            steps {
-                echo 'Just playing....'
-            }
-        }
+
     }
 }
