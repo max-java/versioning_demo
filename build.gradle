@@ -2,8 +2,10 @@ plugins {
 	id 'org.springframework.boot' version '2.4.0'
 	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
 	id 'java'
-	apply plugin: "com.palantir.git-version"
+	id 'com.palantir.git-version' version '0.7.3'
 }
+
+apply plugin: "com.palantir.git-version"
 
 group = 'by.jrr.versioning'
 version = gitVersion()
@@ -18,6 +20,8 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
+
+
 test {
 	useJUnitPlatform()
 }
@@ -25,6 +29,7 @@ test {
 task showVersion {
 	doLast {
 		println "\nCurrent version: ${gitVersion()}\n"
+
 		def details = versionDetails()
 		println "last tag          : ${details.lastTag}"
 		println "commit distance   : ${details.commitDistance}"
