@@ -11,6 +11,7 @@ pipeline {
                 echo 'Building in ...'
                 echo pwd()
                 sh './gradlew clean build'
+                sh './gradlew showVersion'
             }
         }
     }
