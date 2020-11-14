@@ -9,22 +9,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                ./gradlew build
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
-        stage('Playing') {
-            steps {
-                echo 'Deploying....'
+                sh './gradlew clean build'
             }
         }
     }
