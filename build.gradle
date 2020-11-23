@@ -1,21 +1,29 @@
 import org.apache.tools.ant.filters.ReplaceTokens
-import org.ajoberstar.gradle.git.release.opinion.Strategies
+import org.ajoberstar.gradle.git.release.opinion.Strategies //use ajoberstar.grgit
 
 plugins {
 	id 'org.springframework.boot' version '2.4.0'
 	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
 	id 'java'
-	id 'com.palantir.git-version' version '0.7.3'
 
-	//another way of versioning plugin
-	id 'org.ajoberstar.grgit' version '1.7.2'
+	//palantir version disabled
+	id 'com.palantir.git-version' version '0.12.3'
+
+	//another way of versioning plugin because of use n0mer
+	id 'org.ajoberstar.grgit' version '4.1.0'
 	id 'org.ajoberstar.release-opinion' version '1.7.2'
+
+	//https://github.com/n0mer/gradle-git-properties
+	//n0mer plugin
+	id "com.gorylenko.gradle-git-properties" version "2.2.4"
 }
 
 apply plugin: "com.palantir.git-version"
+apply plugin: "com.gorylenko.gradle-git-properties"
 
 group = 'by.jrr.versioning'
-version = gitVersion()
+version = gitVersion()  //that is palantir way of getting version
+//version = ""
 sourceCompatibility = '11'
 
 repositories {
@@ -37,6 +45,7 @@ test {
 	useJUnitPlatform()
 }
 
+//palantir
 task showVersion {
 	doLast {
 		println "\nCurrent version: ${gitVersion()}\n"
@@ -50,6 +59,7 @@ task showVersion {
 	}
 }
 
+//palantir
 processResources {
 	filter(ReplaceTokens, tokens:[appVersion: gitVersion()])
 }
