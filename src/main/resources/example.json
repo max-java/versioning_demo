@@ -1,0 +1,58 @@
+{
+  "git": {
+    "branch": "main",
+    "commit": {
+      "time": "2020-11-23T15:45:05Z",
+      "message": {
+        "full": "adds n0mer map to get properties from\n",
+        "short": "adds n0mer map to get properties from"
+      },
+      "id": {
+        "describe": "preVersion-19-g4f4fe6c-dirty",
+        "abbrev": "4f4fe6c",
+        "full": "4f4fe6c04b76e75ca7057593470bb6d95393e0df"
+      },
+      "user": {
+        "email": "6666350@gmail.com",
+        "name": "max-java"
+      }
+    },
+    "build": {
+      "version": "v1.1.0-2-g4f4fe6c",
+      "user": {
+        "name": "max-java",
+        "email": "6666350@gmail.com"
+      },
+      "host": "max"
+    },
+    "dirty": "true",
+    "tags": "",
+    "total": {
+      "commit": {
+        "count": "32"
+      }
+    },
+    "closest": {
+      "tag": {
+        "commit": {
+          "count": "19"
+        },
+        "name": "preVersion"
+      }
+    },
+    "remote": {
+      "origin": {
+        "url": "https://github.com/max-java/versioning_demo.git"
+      }
+    }
+  },
+  "build": {
+    "artifact": "demo",
+    "name": "demo",
+    "time": "2020-11-23T19:57:45.930Z",
+    "version": "v1.1.0-2-g4f4fe6c",
+    "group": "by.jrr.versioning"
+  },
+  "version": "v1.1.0-2-g4f4fe6c.dirty",
+  "ImplementationVersion": "v1.1.0-2-g4f4fe6c"
+}

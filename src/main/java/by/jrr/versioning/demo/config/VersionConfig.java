@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import javax.validation.constraints.NotNull;
 
+//this reads properties from application properties and set in into actuator/info
 @Configuration
 @ConfigurationProperties(prefix = "application")
 public class VersionConfig {
@@ -15,8 +16,10 @@ public class VersionConfig {
 
     @Bean
     public InfoContributor versionInfoContributor(VersionConfig versionConfig) {
+
         return builder -> {
             builder.withDetail("version", versionConfig.getVersion());
+            builder.withDetail("ImplementationVersion", this.getClass().getPackage().getImplementationVersion());
         };
     }
 
