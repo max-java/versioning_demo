@@ -121,12 +121,3 @@ task getGitLog {
 	print grgit.describe(tags: true)
 
 }
-
-ext.setImplementationVersionWithGrGit = { ->
-	def gitTag = project.ext.gitProps['git.closest.tag.name']
-	def minor = project.ext.gitProps['git.closest.tag.commit.count']
-	def micro = project.ext.gitProps['git.closest.tag.commit.count']
-	def buildMeta = minor+'.'+project.ext.gitProps['git.commit.id.abbrev']
-	def modifier = "RELEASE"
-	return gitTag+'+'+buildMeta+'-'+modifier
-}
