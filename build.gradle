@@ -22,8 +22,8 @@ apply plugin: "com.palantir.git-version"
 apply plugin: "com.gorylenko.gradle-git-properties"
 
 group = 'by.jrr.versioning'
-version = gitVersion()  //that is palantir way of getting version
-//version = ""
+//version = gitVersion()  //that is palantir way of getting version
+version = ""
 sourceCompatibility = '11'
 
 repositories {
@@ -70,5 +70,19 @@ release {
 	defaultVersionStrategy Strategies.SNAPSHOT
 	tagStrategy {
 		generateMessage = { version -> "Version $project.version" }
+	}
+}
+
+//n0mer
+gitProperties { //save props into map
+	extProperty = 'gitProps' // git properties will be put in a map at project.ext.gitProps
+}
+
+//n0mer
+//get props from saved map
+task printGitProperties(dependsOn: 'generateGitProperties') { // make sure generateGitProperties task to execute before accessing generated properties
+	doLast {
+		println "git.closest.tag.name=" + project.ext.gitProps['git.closest.tag.name']
+		println "git.closest.tag.commit.count=" + project.ext.gitProps['git.closest.tag.commit.count']
 	}
 }
